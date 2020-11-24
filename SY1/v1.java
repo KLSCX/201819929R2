@@ -1,6 +1,6 @@
 package SY1;
 import java.util.Random;
-public class PracticeSystem3 {
+public class PracticeSystem4 {
 
     public static void main(String[] args) {
         int[][] Exercise;
@@ -49,10 +49,36 @@ public class PracticeSystem3 {
     //生成习题
     public static int[][] Equation(){
         int[][] Exercise=new int[50][3];
+        int[] Array = new int[3];
+        boolean flag = true;
         for (int i = 0; i < 50; i++) {
-            Exercise[i] = formula();
+            if(i==0) {
+                Exercise[i] = formula();
+            }else {
+                Array = formula();
+                for (int j = 0; j < i; j++) {
+                    if(isEqual(Exercise[j],Array)){
+                        i=i-1;
+                        flag = false;
+                        break;
+                    }
+                }
+                if(flag) {
+                    Exercise[i] = Array;
+                }
+            }
         }
         return Exercise;
+    }
+    //判断重复算式
+    public  static boolean isEqual(int[] a,int[] b){
+        if(a[0]==b[0] && a[1]==b[1] && a[2]==b[2]){
+            return true;
+        }else if(a[0]==b[1] && a[1]==b[0] && a[2]==1 && b[2]==1){
+            return true;
+        }else{
+            return false;
+        }
     }
     //生成100以内的整数
     public static int operand(){
@@ -63,12 +89,12 @@ public class PracticeSystem3 {
 
     //打印习题
     public static void printExercise(int a[][]){
-       for (int i = 0; i < 50; i++) {
-           if (a[i][2]==1){
-            System.out.printf("%-3d + %-3d =            ", a[i][0], a[i][1]);
-        }else {
-            System.out.printf("%-3d - %-3d =            ", a[i][0], a[i][1]);
-        }
+        for (int i = 0; i < 50; i++) {
+            if (a[i][2]==1){
+                System.out.printf("%-3d + %-3d =            ", a[i][0], a[i][1]);
+            }else {
+                System.out.printf("%-3d - %-3d =            ", a[i][0], a[i][1]);
+            }
             if ((i+1) % 5 == 0) {
                 System.out.println();
             }
