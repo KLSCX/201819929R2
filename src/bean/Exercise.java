@@ -4,6 +4,7 @@ import controller.FormulaController;
 import controller.ExerciseController;
 public class Exercise {
     private  Formula[] exercise = new Formula[50];
+
     //生成习题
     public Formula[] getExercise() {
         int count = 0;

@@ -5,12 +5,14 @@ public class Formula {
     private int leftOperand;
     private int rightOperand;
     private char operate;
+
     //算式的构造方法
     public Formula(int left,int right,char operator){
         this.leftOperand = left;
         this.rightOperand = right;
         this.operate = operator;
     }
+
     //getter方法
     public int getLeftOperand() {
         return leftOperand;
@@ -25,6 +27,7 @@ public class Formula {
     public char getOperate() {
         return operate;
     }
+
     //返回结果值
     public int getResult(){
         if (operate == '+'){
@@ -34,6 +37,7 @@ public class Formula {
             return this.leftOperand - this.rightOperand;
         }
     }
+
     //算式输出格式
     @Override
     public String toString() {

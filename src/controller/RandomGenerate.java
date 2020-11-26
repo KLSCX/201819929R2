@@ -9,7 +9,8 @@ public class RandomGenerate {
         int operand = random.nextInt(101);
         return operand;
     }
-    //生成加减号
+
+    //随机生成加减号
     public static char operator(){
         Random random = new Random();
         int operand = random.nextInt(2);

@@ -5,7 +5,7 @@ import bean.Formula;
 public class FormulaController {
 
 
-
+    //生成随机算式
     public static Formula getRandomFormula(){
 
         Formula formula;
@@ -15,6 +15,8 @@ public class FormulaController {
 
         return formula;
     }
+
+    //生成随机加法算式或减法，平衡加减法数量时需要用到
     public static Formula getRandomFormula(char op){
 
         Formula formula;
@@ -33,6 +35,7 @@ public class FormulaController {
         }
     }
 
+    //检查算式结果不能大于100，不能小于0
     public static boolean check(Formula formula) {
         if (formula.getResult() < 0 || formula.getResult() > 100) {
             return false;
