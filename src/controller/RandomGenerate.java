@@ -9,9 +9,15 @@ public class RandomGenerate {
         int operand = random.nextInt(101);
         return operand;
     }
-    public static int operator(){
+    //生成加减号
+    public static char operator(){
         Random random = new Random();
         int operand = random.nextInt(2);
-        return operand;
+        if(operand==1){
+            return '+';
+        }else {
+            return '-';
+        }
+
     }
 }

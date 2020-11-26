@@ -1,33 +1,47 @@
 package bean;
 
-import java.util.Arrays;
-
 public class Formula {
-    private int[] formula = new int[3];
-    public Formula(int left,int right,int operator){
-        this.formula[0] = left;
-        this.formula[1] = right;
-        this.formula[2] = operator;
+    //定义变量，左操作数，右操作数，运算符
+    private int leftOperand;
+    private int rightOperand;
+    private char operate;
+    //算式的构造方法
+    public Formula(int left,int right,char operator){
+        this.leftOperand = left;
+        this.rightOperand = right;
+        this.operate = operator;
+    }
+    //getter方法
+    public int getLeftOperand() {
+        return leftOperand;
     }
 
-    public int[] getFormula() {
-        return formula;
+
+    public int getRightOperand() {
+        return rightOperand;
     }
+
+
+    public char getOperate() {
+        return operate;
+    }
+    //返回结果值
     public int getResult(){
-        if (formula[2]==1){
-            return formula[0] + formula[1];
+        if (operate == '+'){
+            return this.leftOperand + this.rightOperand;
 
         }else {
-            return formula[0] - formula[1];
+            return this.leftOperand - this.rightOperand;
         }
     }
+    //算式输出格式
     @Override
     public String toString() {
-        if (formula[2]==1){
-            return String.format("%3d + %3d =", formula[0], formula[1]);
 
-        }else {
-            return String.format("%3d - %3d =", formula[0], formula[1]);
-        }
+        return String.format("%3d", this.getLeftOperand()) + "  " +
+                this.getOperate() + "  " +
+                String.format("%3d", this.getRightOperand()) + " = ";
+
+
     }
 }
