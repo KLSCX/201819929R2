@@ -1,6 +1,8 @@
 package model;
 
 import java.util.Random;
+//抽象父类算式类
+//定义了两个抽象方法checkCalculation与calculate
 public abstract class Formula {
     //定义变量，左操作数，右操作数，运算符
     static final int UPPER = 100;
@@ -78,6 +80,7 @@ public abstract class Formula {
                 String.format("%3d", this.getValue());
     }
 }
+//加法类继承抽象父类算式类，重写父类方法
 class PlusFormula extends Formula {
     PlusFormula(){
         generateFormula('+');
@@ -94,6 +97,7 @@ class PlusFormula extends Formula {
     }
 
 }
+////减法类继承抽象父类算式类，重写父类方法
 class MinusFormula extends Formula {
     MinusFormula() {
         generateFormula('-');
