@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/201819929R2.iml" filepath="$PROJECT_DIR$/201819929R2.iml" />
       <module fileurl="file://$PROJECT_DIR$/SY1/SY1.iml" filepath="$PROJECT_DIR$/SY1/SY1.iml" />
       <module fileurl="file://$PROJECT_DIR$/SY2/SY2.iml" filepath="$PROJECT_DIR$/SY2/SY2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SY3/SY3.iml" filepath="$PROJECT_DIR$/SY3/SY3.iml" />
     </modules>
   </component>
 </project>
