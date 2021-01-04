@@ -13,6 +13,8 @@ public abstract class Formula {
     private char operate = '+';
     private int value = 0;
 
+
+
     public void generateFormula(char anOperator) {
         int left, right, result = 0;
         Random random = new Random();
@@ -25,6 +27,32 @@ public abstract class Formula {
         rightOperand = right;
         operate = anOperator;
         value = result;
+    }
+
+    private void unsafeConstructor(int left,int right, char anOperator){
+        leftOperand = left;
+        rightOperand = right;
+        operate = anOperator;
+        value = anOperator == '+'?left+right:left-right;
+    }
+
+    public void unsafeConstructor(int left,int right, int result, char anOperator){
+        leftOperand = left;
+        rightOperand = right;
+        operate = anOperator;
+        value = result;
+    }
+    public void unsafeConstructor(String eqString){
+        int opPos=0;
+        int length=eqString.length();
+        // try to locate the position of the operator either '+' or '-'
+        opPos=eqString.indexOf("+");
+        if (opPos <= 0){
+            opPos=eqString.indexOf("-");
+        }
+        unsafeConstructor(Integer.parseInt(eqString.substring(0,opPos)),
+                Integer.parseInt(eqString.substring(opPos+1,length)),
+                eqString.charAt(opPos));
     }
 
     abstract boolean checkCalculation(int anInteger);
@@ -84,36 +112,26 @@ public abstract class Formula {
 
 //加法类继承抽象父类算式类，重写父类方法
 class PlusFormula extends Formula {
-    PlusFormula(){
+    public PlusFormula() {
         generateFormula('+');
     }
-
-    @Override
-    public boolean checkCalculation(int anInteger) {
+    public boolean checkCalculation(int anInteger){
         return anInteger <= UPPER;
     }
-
-    @Override
-    int calculate(int left, int right) {
-        return left + right;
+    int calculate(int left, int right){
+        return left+right;
     }
-
 }
 
 ////减法类继承抽象父类算式类，重写父类方法
 class MinusFormula extends Formula {
-    MinusFormula() {
+    public MinusFormula() {
         generateFormula('-');
     }
-
-    @Override
-    public boolean checkCalculation(int anInteger) {
+    public boolean checkCalculation(int anInteger){
         return anInteger >= LOWER;
     }
-
-    @Override
-    int calculate(int left, int right) {
-        return left - right;
+    int calculate(int left, int right){
+        return left-right;
     }
-
 }

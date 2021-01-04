@@ -72,4 +72,5 @@ public class Exercise {
     public Formula next(){
         return operationList.get(current++);
     }
+
 }
